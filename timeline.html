@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Love Timer</title>
+  
+  <style>
+    /* Romantic Background */
+    body {
+      font-family: 'Segoe UI', cursive;
+      background: linear-gradient(to bottom right, #ffe0f0, #ffc0cb);
+      color: #e75480;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #ffffff;
+    }
+
+    #timer {
+      font-size: 2em;
+      margin: 30px 0;
+      text-shadow: 2px 2px 8px #ff69b4;
+    }
+
+    #stoppedAt {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatUp 8s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Love Message Styling */
+    #loveMessage {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      font-size: 1.5em;
+      color: #5a1238;
+      font-family: 'Dancing Script', cursive;
+      opacity: 0;
+      animation: fadeIn 3s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+  <!-- CSS -->
+<style>
+  /* Loader style */
+  #loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db; /* Blue color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+    background-color: transparent;
+  }
+
+  /* Spin animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Hide content initially */
+  body.loading *:not(#loader) {
+    display: none;
+  }
+</style>
+  <!-- Import Dancing Script font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Loader HTML -->
+<div id="loader"></div>
+
+
+  <h1>We've Been Together For...</h1>
+  <div id="timer">Loading...</div>
+  <button id="start">Resume</button>
+  <button id="stop">Stop</button>
+  <div id="stoppedAt"></div>
+  <button onclick="startMusic()">Click for a melodious surprise 🎊</button>
+
+  <audio id="bgm" src="areee.mp3" loop></audio>
+
+  <script>
+    function startMusic() {
+      const audio = document.getElementById('bgm');
+      audio.play();
+    }
+  const audio = document.getElementById('bgm');
+  audio.volume = 0.4; // volume range is from 0.0 (silent) to 1.0 (full)
+  </script>
+  <!-- 💖 New Love Message Here -->
+  <div id="loveMessage">
+    Every second with you feels like a dream come true... 💕
+  </div>
+  <br>
+  <hr>
+<font size=3>
+<h3>This world has been heaven for me since 29th December 2022.The day when we came into this relationship..!</h3>
+<h3>I really feel so blessed to have you in my life..You are everything to me the best partner i could ever had tbh..though this relation has been a roller coaster for both of us we laughed, we cried, we smiled, we blushed, we got mad..but still we are together ig thats what shows how strong our bond is.!
+  <hr>
+<font size=2>
+<p> and yeahh, pyar andha nahi hota, wo just khud se jyada aapne partner ke liye jina sikha deta hai..!</P>
+    <p>And thats what love is, to just live for each other.!</p>
+<font size=1>
+<p>(Ek time pr hum dono yahi the, but aab hmko to yaad hai sayad tum bhul gayi...What our love was,anyways..)</p>
+<font size=4>
+  <h2> ILY IDU...<3</h2>
+  <script>
+    const startDate = new Date("2022-12-28T23:30:00");
+    let interval = null;
+    const stoppedTime = localStorage.getItem('loveTimerStoppedAt');
+
+    function calculateDuration(fromDate, toDate) {
+      const diff = toDate - fromDate;
+      let seconds = Math.floor(diff / 1000);
+      let minutes = Math.floor(seconds / 60);
+      let hours = Math.floor(minutes / 60);
+      let days = Math.floor(hours / 24);
+      let months = Math.floor(days / 30.44);
+      let years = Math.floor(months / 12);
+
+      months = months % 12;
+      days = Math.floor(days % 30.44);
+      hours = hours % 24;
+      minutes = minutes % 60;
+      seconds = seconds % 60;
+
+      return { years, months, days, hours, minutes, seconds };
+    }
+
+    function displayTimer(duration) {
+      document.getElementById('timer').innerText = 
+        `${duration.years} years, ${duration.months} months, ${duration.days} days, ` +
+        `${duration.hours} hours, ${duration.minutes} minutes, ${duration.seconds} seconds`;
+    }
+
+    function updateTimer() {
+      const now = new Date();
+      const duration = calculateDuration(startDate, now);
+      displayTimer(duration);
+    }
+
+    function startTimer() {
+      clearInterval(interval);
+      localStorage.removeItem('loveTimerStoppedAt');
+      document.getElementById('stoppedAt').innerText = "";
+      interval = setInterval(updateTimer, 1000);
+    }
+
+    function stopTimer() {
+      const now = new Date();
+      clearInterval(interval);
+      localStorage.setItem('loveTimerStoppedAt', now.toISOString());
+      showStoppedAt(now);
+    }
+
+    function showStoppedAt(date) {
+      const stoppedDuration = calculateDuration(startDate, date);
+      displayTimer(stoppedDuration);
+
+      document.getElementById('stoppedAt').innerText = 
+        `Timer stopped at: ${date.toLocaleString()}`;
+    }
+
+    document.getElementById('stop').addEventListener('click', function() {
+      stopTimer();
+    });
+
+    document.getElementById('start').addEventListener('click', function() {
+      startTimer();
+    });
+
+    if (stoppedTime) {
+      const stoppedDate = new Date(stoppedTime);
+      showStoppedAt(stoppedDate);
+    } else {
+      startTimer();
+    }
+
+    // Floating Hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+  <script>
+    document.body.classList.add('loading'); // Hide page, show loader
+  
+    window.addEventListener('load', function() {
+      document.getElementById('loader').style.display = 'none'; // Hide loader
+      document.body.classList.remove('loading'); // Show page content
+    });
+  </script>  
+</body>
+</html>
+

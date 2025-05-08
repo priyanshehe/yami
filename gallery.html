@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', cursive;
+      background: linear-gradient(to right, #000428, #004e92); /* blueish black background */
+      text-align: center;
+      color: #f5f5f5;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      font-family: 'Great Vibes', cursive;
+      color: #00d9ff;
+      text-shadow: 2px 2px #000;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(255,255,255,0.4);
+    }
+
+    .caption {
+      margin-top: 15px;
+      font-size: 1.5em;
+      color: #00d9ff;
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .controls button {
+      background: #00d9ff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: #000;
+      font-size: 1.2em;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .controls button:hover {
+      background: #ffffff;
+      transform: scale(1.1);
+    }
+
+  
+
+    @media (max-width: 600px) {
+      .caption {
+        font-size: 1.1em;
+      }
+      .controls button {
+        padding: 8px 14px;
+        font-size: 1em;
+      }
+      .gallery {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>~~ for the way you are💖</h1>
+
+
+    <div class="gallery">
+      <img src="IMG-20250426-WA0021.jpg" alt="Us together" data-caption="When yami was a choti si pyari si bacchi..sooo cute">
+      <img src="IMG-20250426-WA0008.jpg" alt="Laughing together" data-caption="Ye pic to mera personal favourite hai...hm to ye bada sa frame krwa krke mom ko gift krenge when i will meet her.!">
+      <img src="IMG-20250426-WA0011.jpg" alt="Holding hands" data-caption="The reason am with you..is i really want a daughter like this frrr plss">
+      <img src="IMG-20250426-WA0013.jpg" alt="Special day" data-caption="And she grew up ~~ beauty without brain">
+      <img src="IMG-20250426-WA0012.jpg" alt="Special day" data-caption="Oohhooo Professional Ladizzz">
+      <img src="IMG-20250426-WA0014.jpg" alt="Special day" data-caption="Ye to meri sanskari biwi hai.!">
+      <img src="IMG-20250426-WA0010.jpg" alt="Special day" data-caption="~~ you are my sunshine">
+      <img src="IMG-20250426-WA0009.jpg" alt="Special day" data-caption="kiti innocent lag rhi seee">
+      <img src="IMG-20250426-WA0020.jpg" alt="Special day" data-caption="bholi bhi lag rhi">
+      <img src="IMG-20250426-WA0017.jpg" alt="Special day" data-caption="esme to mahila lag rhi...meri pyari mahila.!">
+      <img src="IMG-20250426-WA0018.jpg" alt="Special day" data-caption="hayeee ye nashili aakhe and hayeee ye pyara sa nose piercing">
+      <img src="IMG-20250426-WA0019.jpg" alt="Special day" data-caption="Tmhare es look ke liye hi to mera dil dhadakta hai sabse jyada...cause i have seen you in this look fr">
+      <img src="IMG-20250426-WA0015.jpg" alt="Special day" data-caption="ye pic to meri sundar si biwi ka hai jisko hm bahut acche se clear krke aapne pass rakhe hai nd min. to 150 baar dekh hi chuke honge hm ye pic i love it soo much">
+      <img src="IMG-20250426-WA0016.jpg" alt="Special day" data-caption="ye bhi clear krke rakhe the meri biwi ka sharee me pic to hona hi cahiye na mere pass..!">
+      <img src="WhatsApp Image 2025-04-06 at 16.34.23_345c66b0.jpg" alt="Special day" data-caption="esme kitni masoon lag rhi meri bacchi nd thoda pain bhi dikh rha es pic me">  
+      <img src="WhatsApp Image 2025-04-06 at 16.34.22_f52ef29a.jpg" alt="Special day" data-caption="this was really a mindblowing pic for me esko dekh kr hmko thode wild thoughts aate hai esliye my favourite.!">  
+      <img src="IMG-20250503-WA0016.jpg" alt="Us together" data-caption="When yami was a choti si pyari si bacchi..sooo cute">
+      <img src="IMG-20250503-WA0017.jpg" alt="Laughing together" data-caption="Ye pic to mera personal favourite hai...hm to ye bada sa frame krwa krke mom ko gift krenge when i will meet her.!">
+      <img src="IMG-20250503-WA0018.jpg" alt="Holding hands" data-caption="The reason am with you..is i really want a daughter like this frrr plss">
+      <img src="IMG-20250426-WA0019.jpg" alt="Special day" data-caption="And she grew up ~~ beauty without brain">
+      <img src="IMG-20250503-WA0020.jpg" alt="Special day" data-caption="Oohhooo Professional Ladizzz">
+      <img src="IMG-20250503-WA0021.jpg" alt="Special day" data-caption="Ye to meri sanskari biwi hai.!">
+      <img src="IMG-20250503-WA0022.jpg" alt="Special day" data-caption="~~ you are my sunshine">
+      <img src="IMG-20250503-WA0023.jpg" alt="Special day" data-caption="kiti innocent lag rhi seee">
+      <img src="IMG-20250503-WA0024.jpg" alt="Special day" data-caption="bholi bhi lag rhi">
+  </div>
+
+  <!-- Lightbox Popup -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+    <div class="caption" id="lightbox-caption"></div>
+    <div class="controls">
+      <button onclick="previousImage()">⟵ Prev</button>
+      <button onclick="nextImage()">Next ⟶</button>
+      <button onclick="closeLightbox()">Close ✖️</button>
+    </div>
+  </div>
+
+  <!-- Floating Hearts Animation -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 8000);
+    }
+    setInterval(createHeart, 800);
+
+    // Lightbox functionality
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    let currentIndex = 0;
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightbox.style.display = 'flex';
+      showImage();
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    function showImage() {
+      lightboxImg.src = galleryImages[currentIndex].src;
+      lightboxCaption.textContent = galleryImages[currentIndex].dataset.caption;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      showImage();
+    }
+
+    function previousImage() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage();
+    }
+  </script>
+
+</body>
+</html>
+
+
+

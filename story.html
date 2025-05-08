@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Memories ❤️</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Sacramento', cursive;
+      background: linear-gradient(#ffe6e6, #ffffff);
+      overflow-x: hidden;
+    }
+
+    /* Cover Photo */
+ /* Cover Photo */
+.cover-photo {
+  position: relative;
+  width: 100%;
+  min-height: 40vh; /* Always at least 40% of viewport height */
+  background-image: url('images/cover.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Cover Text */
+.cover-text {
+  color: white;
+  font-size: 3rem;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+    /* Grid Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .photo-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      background-color: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff1e49;
+    }
+
+    /* Modal (Full screen view) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 90%;
+      max-height: 90%;
+      text-align: center;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .modal-desc {
+      margin-top: 15px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ffcccc;
+    }
+
+    /* Love Popup */
+    .love-popup {
+      display: none;
+      position: fixed;
+      z-index: 1100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    .love-popup h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease;
+    }
+
+    .love-popup p {
+      font-size: 1.5rem;
+      animation: fadeIn 3s ease;
+    }
+
+    .close-love {
+      margin-top: 20px;
+      background-color: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive adjustment */
+@media (max-width: 768px) {
+  .cover-photo {
+    min-height: 30vh;
+    background-position: center top; /* Focus top part of image on mobile */
+  }
+
+  .cover-text {
+    font-size: 2rem;
+    padding: 8px 16px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Cover Photo -->
+  <div class="cover-photo">
+    <div class="cover-text">Our Beautiful Memories ❤️</div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery">
+    <!-- 10 Photo Cards -->
+    <div class="photo-card">
+      <img src="img1.jpg" alt="Memory 1">
+      <button class="btn" onclick="openModal('img1.jpg', 'This is the first small gift you gave me...i loved it and tbh aaj bhi i crave for this type og gifts💖')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="img2.jpg" alt="Memory 2">
+      <button class="btn" onclick="openModal('img2.jpg', 'hehe ik you hate this pic but babess believe esme tm ekdum meri biwi material lag rhi frrr')">View Story</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0015.jpg" alt="Memory 3">
+      <button class="btn" onclick="openModal('images/photo3.jpg', 'Laughing endlessly 😂')">View Story</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0014.jpg" alt="Memory 4">
+      <button class="btn" onclick="openModal('IMG-20250426-WA0014.jpg', 'Ye tmne phli holi pr bheja tha hmko i cant even express wht this pic is for me tbh hm tmhara aysa look phli baar dekhe the and fell for you')">View Story</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0013.jpg" alt="Memory 5">
+      <button class="btn" onclick="openModal('images/photo5.jpg', 'Cuddles and warmth 🧸')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0012.jpg" alt="Memory 6">
+      <button class="btn" onclick="openModal('images/photo6.jpg', 'Dancing in the rain ☔')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0011.jpg" alt="Memory 7">
+      <button class="btn" onclick="openModal('images/photo7.jpg', 'Road trips & music 🚗🎶')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0010.jpg" alt="Memory 8">
+      <button class="btn" onclick="openModal('images/photo8.jpg', 'Your birthday surprise 🎂')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0009.jpg" alt="Memory 9">
+      <button class="btn" onclick="openModal('images/photo9.jpg', 'Lazy Sundays 🛋️')">View</button>
+    </div>
+
+    <div class="photo-card">
+      <img src="IMG-20250426-WA0008.jpg" alt="Memory 10">
+      <button class="btn" onclick="openModal('images/photo10.jpg', 'Promise to love you forever 💍')">View</button>
+    </div>
+  </div>
+
+  <!-- Modal for Photos -->
+  <div id="photoModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" src="">
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+  </div>
+
+  <!-- Love Popup -->
+  <div id="lovePopup" class="love-popup">
+    <h1>I Love You ❤️</h1>
+    <p>Thank you for being the best part of my life.</p>
+    <button class="close-love" onclick="closeLovePopup()">Close</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let viewedPhotos = 0;
+    const totalPhotos = 10;
+    let viewedSet = new Set();
+
+    function openModal(imgSrc, descText) {
+      document.getElementById('photoModal').style.display = "flex";
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalDesc').innerText = descText;
+
+      // Track viewed photos using image source
+      if (!viewedSet.has(imgSrc)) {
+        viewedSet.add(imgSrc);
+        viewedPhotos++;
+        checkAllViewed();
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('photoModal').style.display = "none";
+    }
+
+    function checkAllViewed() {
+      if (viewedPhotos === totalPhotos) {
+        document.getElementById('lovePopup').style.display = "flex";
+      }
+    }
+
+    function closeLovePopup() {
+      document.getElementById('lovePopup').style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
+
